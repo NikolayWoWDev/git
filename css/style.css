@@ -9,6 +9,17 @@
 	margin: auto;	
 }
 
+a 
+{
+	text-decoration: none;
+}
+
+body 
+{
+	padding-top: 44px;
+	font-family: 'Roboto', sans-serif;
+}
+
 .header 
 {
 	display: flex;
@@ -84,4 +95,205 @@
 	color: #fff;
 	margin-right: 10px;
 	box-shadow: none;
+}
+
+.promo 
+{
+	color: #302C34;
+	background: #FFF1B8 url('../img/pizza.png') no-repeat;
+	background-position: 450px -100px;
+	-webkit-background-size: cover;
+	background-size: cover;
+	border-radius: 10px;
+	box-shadow: 0px 7px 12px rgba(158, 158, 163, 0.1);
+	padding: 68px 0 68px 70px;
+}
+
+.promo_title h2 
+{
+	font-weight: 700;
+	font-size: 39px;
+	line-height: 46px;
+}
+
+.promo_subtitle p 
+{
+	max-width: 638px;
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.main {
+	margin-top: 16px;
+	background: linear-gradient(180deg, rgba(245, 245, 245, 0) 1.04%, #F5F5F5 100%);
+}
+
+.restraunts 
+{
+	margin-top: 60px;
+}
+
+.heading 
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.heading_title h2 
+{
+	margin: 0;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 42px;
+}
+
+.heading_search 
+{
+	width: 25.5%;
+}
+.heading_search input 
+{
+	background: url('../img/icons/search.svg') left 11px center no-repeat;
+}
+
+.cards 
+{
+	padding-top: 45px;
+	padding-bottom: 65px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card 
+{
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+	border-radius: 7px;
+	overflow: hidden;
+	width: 33.333%;
+	max-width: 380px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	transition: all .35s;
+}
+
+.card:hover 
+{
+	box-shadow: 0px 4px 40px -5px rgba(0,0,0,0.6);
+}
+
+.card_restr:hover 
+{
+	transform: scale(1);
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); 
+}
+
+.card_img 
+{
+	max-width: 380px;
+	max-height: 250px;
+}
+
+.card_img img 
+{
+	object-fit: cover;
+	max-width: 100%;
+}
+
+.card_body 
+{
+	padding: 20px 24px 35px;
+}
+
+.card_heading 
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card_title h3 
+{
+	margin: 0;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 32px;
+	transition: all 0.3s;
+	color: black;
+}
+
+.card_title h3:hover 
+{
+	opacity: .7;
+}
+
+.card_time 
+{
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	background: #262626;
+	border-radius: 2px;
+	padding: 1px 8px;
+}
+
+.card_info 
+{
+	margin-top: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 227px;
+	font-size: 18px;
+	line-height: 32px;
+	color: #8C8C8C;
+}
+
+.card_rating 
+{
+	font-weight: bold;
+	color: #FFC107;
+}
+
+.card_rating img 
+{
+	margin-right: 7px;
+}
+
+.card_pay:after 
+{
+	content: '';
+	width: 5px;
+	height: 5px;
+	background-color: #8C8C8C;
+	display: inline-block;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-left: 13px;
+}
+
+.btn_img_restr 
+{
+	margin-bottom: -3px;
+}
+
+.btn_restr 
+{
+	transition: all .3s;
+}
+
+.btn_restr:hover 
+{
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+}
+
+.btn_restr:active 
+{
+	box-shadow: none;
+	transform: scale(0.98);
+}
+
+.locked {
+	overflow: hidden;
 }
