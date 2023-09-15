@@ -102,7 +102,6 @@ body
 	color: #302C34;
 	background: #FFF1B8 url('../img/pizza.png') no-repeat;
 	background-position: 450px -100px;
-	-webkit-background-size: cover;
 	background-size: cover;
 	border-radius: 10px;
 	box-shadow: 0px 7px 12px rgba(158, 158, 163, 0.1);
