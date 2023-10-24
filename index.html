@@ -21,7 +21,7 @@
 					<img src="img/icons/user.svg" alt="">
 					<span class="header_text">Войти</span>
 				</button>
-				<button class="header_button btn">
+				<button class="header_button btn shoppingCard">
 					<img src="img/icons/cart.svg" alt="">
 					<span class="header_text">Корзина</span>
 				</button>
@@ -40,7 +40,7 @@
 					<div class="heading_search input"><input type="search" placeholder="Поиск блюд и ресторанов"></div>
 				</div>
 				<div class="cards">
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.2s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.2s">
 						<div class="card_img">
 							<img src="img/cards/1.jpg" alt="">
 						</div>
@@ -56,7 +56,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.4s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.4s">
 						<div class="card_img">
 							<img src="img/cards/2.jpg" alt="">
 						</div>
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.6s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.6s">
 						<div class="card_img">
 							<img src="img/cards/3.jpg" alt="">
 						</div>
@@ -88,7 +88,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.2s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.2s">
 						<div class="card_img">
 							<img src="img/cards/4.jpg" alt="">
 						</div>
@@ -104,7 +104,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.4s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.4s">
 						<div class="card_img">
 							<img src="img/cards/5.jpg" alt="">
 						</div>
@@ -120,7 +120,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="restraunts.html" class="card wow fadeInUp" data-wow-delay="0.6s">
+					<a href="res.html" class="card wow fadeInUp" data-wow-delay="0.6s">
 						<div class="card_img">
 							<img src="img/cards/6.jpg" alt="">
 						</div>
@@ -142,17 +142,17 @@
 	</main>
 	<footer class="footer">
 		<div class="wrapper">
-			<div class="footer__row">
-				<div class="footer__logo logo wow fadeInLeft">
+			<div class="footer_row">
+				<div class="footer_logo logo wow fadeInLeft">
 					<a href="index.html"><img src="img/icons/logo.svg" alt=""></a>
 				</div>
-				<nav class="footer__nav">
+				<nav class="footer_nav">
 					<a href="#">Ресторанам</a>
 					<a href="#">Курьерам</a>
 					<a href="#">Пресс-центр</a>
 					<a href="#">Контакты</a>
 				</nav>
-				<div class="footer__social">
+				<div class="footer_social">
 					<a href="#"><img src="img/icons/inst.svg" alt=""></a>
 					<a href="#"><img src="img/icons/fb.svg" alt=""></a>
 					<a href="#"><img src="img/icons/vk.svg" alt=""></a>
@@ -160,5 +160,80 @@
 			</div>
 		</div>
 	</footer>
+	<div class="modal">
+		<div class="modal_body">
+			<div class="modal_header">
+				<div class="modal_title">Корзина</div>
+				<button class="modal_close">&times;</button>
+			</div>
+			<div class="modal_rows">
+				<div class="modal_row">
+					<div class="modal_name">Ролл угорь стандарт</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter" onclick="minus()">-</button>
+						<span class="modal_count" id="count1">0</span>
+						<button class="modal_counter" onclick="plus()">+</button>
+					</div>
+				</div>
+				<div class="modal_row">
+					<div class="modal_name">Калифорния лосось</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter">-</button>
+						<span class="modal_count">0</span>
+						<button class="modal_counter">+</button>
+					</div>
+				</div>
+				<div class="modal_row">
+					<div class="modal_name">Окинава стандарт</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter">-</button>
+						<span class="modal_count">0</span>
+						<button class="modal_counter">+</button>
+					</div>
+				</div>
+				<div class="modal_row">
+					<div class="modal_name">Цезарь маки хl</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter">-</button>
+						<span class="modal_count">0</span>
+						<button class="modal_counter">+</button>
+					</div>
+				</div>
+				<div class="modal_row">
+					<div class="modal_name">Ясай маки стандарт 185 г</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter">-</button>
+						<span class="modal_count">0</span>
+						<button class="modal_counter">+</button>
+					</div>
+				</div>
+				<div class="modal_row">
+					<div class="modal_name">Ролл с креветкой стандарт</div>
+					<div class="modal_price">0 ₽</div>
+					<div class="modal_counters">
+						<button class="modal_counter">-</button>
+						<span class="modal_count">0</span>
+						<button class="modal_counter">+</button>
+					</div>
+				</div>
+			</div>
+			<div class="modal_footer">
+				<div class="modal_last"><div class="modal_last_price">0 ₽</div></div>
+				<button class="modal_order">Оформить заказ</button>
+				<button class="modal_cancel">Отменить</button>
+			</div>
+		</div>
+	</div>
+	<!-- /footer -->
+	<!-- /modal -->
+	<!-- scripts -->
+	<script src="js/wow.min.js"></script>
+	<script src="js/main.js"></script>
+	<!-- /scripts -->
 </body>
 </html>
