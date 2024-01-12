@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function()
 	const formAnswers = document.querySelector('#formAnswers');
 	const nextButton = document.querySelector('#next');
 	const prevButton = document.querySelector('#prev');
+	const sendButton = document.querySelector('#send');
 	
 	const questions = [
 	{
@@ -96,19 +97,53 @@ document.addEventListener('DOMContentLoaded', function()
 	
 	const playTest = () => {
 		let numberQuestion = 0;
+		const finalAnswers = [];
 		const renderQuestions = (index) =>
 		{
 			formAnswers.innerHTML = ``;
+			if(numberQuestion === questions.length + 1)
+			{
+				questionTitle.textContent = "";
+				formAnswers.textContent = "Спасибо за тест";
+				setTimeout(() => {
+					modalBlock.classList.remove('d-block');
+				}, 2000);
+				return;
+			}
+			
 			questionTitle.textContent = `${questions[index].question}`;
+			
+			// P.S Тут в видео действия с кнопками, но они вынесены в updateButtonsVisibility(); поэтому тут оно не надо	
+			
 		}
 		renderQuestions(numberQuestion);
+		
+		const checkAnswer = () => {
+			const obj = {};
+			const inputs = [...formAnswers.elements].filter((input) => input.checked || input.id === 'numberPhone');
+			
+			if(numberQuestion >= 0 && numberQuestion <= questions.length - 1)
+			{
+				inputs.forEach((input, index) => {
+				obj[`${index}_${questions[numberQuestion].question}`] = input.value;
+				})
+			}
+			else 
+			{
+				inputs.forEach((input, index) => {
+				obj[`Номер`] = input.value;
+			})
+			}
+			
+			finalAnswers.push(obj);
+		}
 		
 		const renderAnswers = (index) => {
 			questions[index].answers.forEach((answer) => {
 			const answerItem = document.createElement('div');
-			answerItem.classList.add('answers-item', 'd-flex', 'flex-column');
+			answerItem.classList.add('answers-item', 'd-flex', 'justify-content-center');
 			answerItem.innerHTML = `<div class="answers-item d-flex flex-column">
-                <input type="${questions[index].type}" id="${answer.title}" name="answer" class="d-none">
+                <input type="${questions[index].type}" id="${answer.title}" name="answer" class="d-none" value="${answer.title}">
                 <label for="${answer.title}" class="d-flex flex-column justify-content-between">
                   <img class="answerImg" src="${answer.url}" alt="burger">
                   <span>${answer.title}</span>
@@ -122,17 +157,36 @@ document.addEventListener('DOMContentLoaded', function()
 		
 		const updateButtonsVisibility = () => 
 		{
+			sendButton.classList.add('d-none');
 			prevButton.style.display = numberQuestion === 0 ? 'none' : 'block';
-			nextButton.style.display = numberQuestion === (questions.length - 1) ? 'none' : 'block';
+			nextButton.style.display = numberQuestion === questions.length ? 'none' : 'block';	
+		};
+		
+		const displayThanks = () =>
+		{
+			prevButton.style.display = "none";
+			nextButton.style.display = "none";
+			sendButton.classList.remove('d-none');
+			questionTitle.textContent = "Обратная связь";
+			formAnswers.innerHTML = `
+			<div class="form-group">
+				<label for="numberPhone">Введите ваш номер</label>
+				<input type="phone" class="form-control" id="numberPhone">
+			</div>
+			`;
 		};
 		
 		updateButtonsVisibility();
 		
 		nextButton.onclick = () => {
 			
-			if(numberQuestion >= (questions.length - 1))
+			if(numberQuestion === (questions.length - 1))
+			{
+				displayThanks();
 				return;
+			}
 			
+			checkAnswer();
 			numberQuestion++;
 			renderQuestions(numberQuestion);
 			renderAnswers(numberQuestion);
@@ -148,6 +202,13 @@ document.addEventListener('DOMContentLoaded', function()
 			renderQuestions(numberQuestion);
 			renderAnswers(numberQuestion);
 			updateButtonsVisibility();
+		};
+		
+		sendButton.onclick = () => {
+			sendButton.classList.add('d-none');
+			checkAnswer();
+			numberQuestion = questions.length + 1;
+			renderQuestions(numberQuestion);
 		};
 	}
 })
