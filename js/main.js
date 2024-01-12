@@ -55,6 +55,8 @@ loginBtn.addEventListener('click', function(event) {
 close1.addEventListener('click', function(event) {  
 	modal1.classList.remove('is-open');
 	lockedBody.classList.remove('locked');
+	login.value = "";
+	pass.value = "";
 });
 
 var storedLogin = localStorage.getItem('storedLogin') || "";
@@ -110,3 +112,23 @@ else
 	welcomeText.style.display = "block";
 	welcomeText.innerText = "Добро пожаловать, " + storedLogin;
 }
+
+modal.addEventListener('click', function(event) 
+{
+	if (event.target.classList.contains('is-open'))
+	{
+		modal.classList.remove('is-open');
+		lockedBody.classList.remove('locked');
+	}
+});
+
+modal1.addEventListener('click', function(event) 
+{
+	if (event.target.classList.contains('is-open'))
+	{
+		modal1.classList.remove('is-open');
+		lockedBody.classList.remove('locked');
+		login.value = "";
+		pass.value = "";
+	}
+});
