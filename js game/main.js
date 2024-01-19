@@ -105,7 +105,7 @@ function logBattle(p_Damage, p_RemainingHealth) {
     const l_LogMessage = logs[l_LogIndex];
     const l_FormattedLog = l_LogMessage.replace('[ПЕРСОНАЖ №1]', g_Character.name).replace('[ПЕРСОНАЖ №2]', g_Enemy.name)
     l_LogEntry.textContent = `${l_FormattedLog} Урон: ${p_Damage}. Осталось жизней соперника: ${p_RemainingHealth}`;
-    l_BattleLog.appendChild(l_LogEntry);
+    l_BattleLog.insertBefore(l_LogEntry, l_BattleLog.firstChild);
 }
 
 function restart() 
