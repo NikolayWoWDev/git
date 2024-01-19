@@ -7,11 +7,15 @@ const g_Character =
 	element: document.getElementById('character'),
 	progressBar: document.getElementById('progressbar-character'),
 	healthText: document.getElementById('health-character'),
+	Kicks: 6,
+	Attacks: 6,
+	
 	updateDetails: function() {
 		this.healthText.textContent = `${this.health} / ${this.maxHealth}`;
 		const healthPercentage = (this.health / this.maxHealth) * 100;
 		this.progressBar.style.width = `${healthPercentage}%`;
 	},
+	
 	getMaxHealth: function(p_Level) 
 	{
         if (p_Level < 5) 
@@ -32,9 +36,19 @@ const g_Character =
 	switch(p_Type) 
 	{
 	  case 'kick':
+		this.Kicks--;
+		
+		if(!CanUse(this.Kicks))
+			return;
+		
 		g_Enemy.health -= l_Damage;
 		break;
 	  case 'other':
+		this.Attacks--;
+		
+		if(!CanUse(this.Attacks))
+			return;
+		
 		g_Enemy.health -= l_Damage * 2;
 		break;
 	  case 'die':
@@ -98,6 +112,23 @@ function setGameState(p_State)
 	}
 }
 
+function CanUse(p_AttackType)
+{
+	gClicks++;
+	
+	console.log("Всего кликов " + gClicks);
+	
+	if(p_AttackType < 0)
+	{
+		console.log("Данная способность закончилась");
+		return false;
+	}
+	
+	console.log("Осталось " + p_AttackType + " использований");
+	
+	return true;
+}
+
 function logBattle(p_Damage, p_RemainingHealth) {
 	const l_BattleLog = document.getElementById('logs');
     const l_LogEntry = document.createElement('div');
@@ -140,3 +171,5 @@ function setCharacterAndEnemyLevels() {
     l_CharacterLevelElement.textContent = `Lv. ${g_Character.level}`;
     l_EnemyLevelElement.textContent = `Lv. ${g_Enemy.level}`;
 }
+
+gClicks = 0;
