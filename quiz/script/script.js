@@ -9,85 +9,18 @@ document.addEventListener('DOMContentLoaded', function()
 	const prevButton = document.querySelector('#prev');
 	const sendButton = document.querySelector('#send');
 	
-	const questions = [
-	{
-		question: "Какого цвета бургер вы хотите?",
-		answers : [
-		{
-			title: 'Стандарт',
-			url: './image/burger.png',
-		},
-		{
-			title: 'Черный',
-			url: './image/burgerBlack.png',
-		}
-		],
-		type: 'radio',
-	},
-	{
-		question: "Из какого мяса?",
-		answers : [
-		{
-			title: 'Корова',
-			url: './image/beefMeat.png',
-		},
-		{
-			title: 'Курица',
-			url: './image/chickenMeat.png',
-		},
-		{
-			title: 'Свиня',
-			url: './image/porkMeat.png',
-		}
-		],
-		type: 'radio',
-	},
-	{
-		question: "Доп ингридиенты?",
-		answers : [
-		{
-			title: 'Огурец',
-			url: './image/cucumber.png',
-		},
-		{
-			title: 'Лук',
-			url: './image/onion.png',
-		},
-		{
-			title: 'Салат',
-			url: './image/salad.png',
-		},
-		{
-			title: 'Помидор',
-			url: './image/tomato.png',
-		}
-		],
-		type: 'radio',
-	},
-	{
-		question: "Соус?",
-		answers : [
-		{
-			title: 'Белый',
-			url: './image/sauce1.png',
-		},
-		{
-			title: 'Острый',
-			url: './image/sauce2.png',
-		},
-		{
-			title: 'Майонез',
-			url: './image/sauce3.png',
-		},
-		],
-		type: 'radio',
+	const getData = () => {
+		formAnswers.textContent = `LOAD`;
+		
+		fetch("https://doogewow.site/DO_NOT_FKG_DELETE_THIS_FOLDER/quiz/script/db.json")
+		.then(res => res.json())
+		.then(obj => playTest(obj.questions))
 	}
-	]
 	
 	btnOpenModal.addEventListener('click', () =>
 	{
 		modalBlock.classList.add('d-block');
-		playTest();
+		getData();
 	});
 	
 	closeModal.addEventListener('click', () =>
@@ -95,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function()
 		modalBlock.classList.remove('d-block');
 	});
 	
-	const playTest = () => {
+	const playTest = (questions) => {
 		let numberQuestion = 0;
 		const finalAnswers = [];
 		const renderQuestions = (index) =>
@@ -128,14 +61,15 @@ document.addEventListener('DOMContentLoaded', function()
 				obj[`${index}_${questions[numberQuestion].question}`] = input.value;
 				})
 			}
-			else 
+			else if (numberQuestion == questions.length + 2)
 			{
 				inputs.forEach((input, index) => {
-				obj[`Номер`] = input.value;
+				obj[`${index}_Номер`] = input.value;
 			})
 			}
 			
 			finalAnswers.push(obj);
+			console.log(finalAnswers);
 		}
 		
 		const renderAnswers = (index) => {
@@ -206,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function()
 		
 		sendButton.onclick = () => {
 			sendButton.classList.add('d-none');
+			numberQuestion = questions.length + 2;
 			checkAnswer();
-			numberQuestion = questions.length + 1;
 			renderQuestions(numberQuestion);
 		};
 	}

@@ -1,0 +1,76 @@
+{
+	"questions": [
+		{
+			"question": "Какого цвета бургер вы хотите?",
+			"answers": [
+				{
+					"title": "Стандарт",
+					"url": "./image/burger.png"
+				},
+				{
+					"title": "Черный",
+					"url": "./image/burgerBlack.png"
+				}
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Из какого мяса?",
+			"answers": [
+				{
+					"title": "Корова",
+					"url": "./image/beefMeat.png"
+				},
+				{
+					"title": "Курица",
+					"url": "./image/chickenMeat.png"
+				},
+				{
+					"title": "Свиня",
+					"url": "./image/porkMeat.png"
+				}
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Доп ингридиенты?",
+			"answers": [
+				{
+					"title": "Огурец",
+					"url": "./image/cucumber.png"
+				},
+				{
+					"title": "Лук",
+					"url": "./image/onion.png"
+				},
+				{
+					"title": "Салат",
+					"url": "./image/salad.png"
+				},
+				{
+					"title": "Помидор",
+					"url": "./image/tomato.png"
+				}
+			],
+			"type": "radio"
+		},
+		{
+			"question": "Соус?",
+			"answers": [
+				{
+					"title": "Белый",
+					"url": "./image/sauce1.png"
+				},
+				{
+					"title": "Острый",
+					"url": "./image/sauce2.png"
+				},
+				{
+					"title": "Майонез",
+					"url": "./image/sauce3.png"
+				}
+			],
+			"type": "radio"
+		}
+	]
+}
