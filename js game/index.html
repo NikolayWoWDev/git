@@ -14,35 +14,34 @@
     </header>
     <div class="playground">
         <div class="pokemon character">
-            <span class="lvl">Lv. 1</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/Pok%C3%A9mon_Pikachu_art.png" class="sprite">
+            <span class="lvl">Lv. 0</span>
+            <img src="" id="hero_img" class="sprite">
             <div class="details">
                 <h2 class="name" id="name-character">Pikachu</h2>
                 <div class="hp">
                     <div class="bar">
                         <div class="health" id="progressbar-character" style="width: 100%;"></div>
                     </div>
-                    <span class="text" id="health-character">100 / 100</span>
+                    <span class="text" id="health-character">0 / 0</span>
                 </div>
             </div>
         </div>
 
         <div class="control">
-            <button class="button" id="btn-kick" onclick="g_Character.attack('kick')">Thunder Jolt</button>
-            <button class="button" id="btn-other-attack" onclick="g_Character.attack('other')">Other Attack</button>
-            <button class="button" id="btn-die" onclick="g_Character.attack('die')">Test Death</button>
+            <button class="button" id="btn-kick" onclick="g_Character.attack('kick', g_Enemy, false)">Thunder Jolt</button>
+            <button class="button" id="btn-other-attack" onclick="g_Character.attack('other', g_Enemy, false)">Other Attack</button>
         </div>
 
         <div class="pokemon enemy">
-            <span class="lvl">Lv. 1</span>
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" class="sprite">
+            <span class="lvl">Lv. 0</span>
+            <img src="" id="enemy_img" class="sprite">
             <div class="details">
-                <h2 class="name" id="name-enemy">Charmander</h2>
+                <h2 class="name" id="name-enemy"></h2>
                 <div class="hp">
                     <div class="bar">
                         <div class="health" id="progressbar-enemy" style="width: 100%;"></div>
                     </div>
-                    <span class="text" id="health-enemy">100 / 100</span>
+                    <span class="text" id="health-enemy">0 / 0</span>
                 </div>
             </div>
         </div>
@@ -50,8 +49,8 @@
 	<div id="logs"></div>
 </div>
 <div class="catch_screen"></div>
-
-<script src="main.js"></script>
 <script src="logs.js"></script>
+<script src="pokemons.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
